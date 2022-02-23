@@ -30,4 +30,75 @@ public class OilChange {
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
+
+    public OilChange() {
+    }
+
+    public OilChange(Long id, Long mileage, Date date, String oilGrade, String oilFilter) {
+        this.id = id;
+        this.mileage = mileage;
+        this.date = date;
+        this.oilGrade = oilGrade;
+        this.oilFilter = oilFilter;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(Long mileage) {
+        this.mileage = mileage;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getOilGrade() {
+        return oilGrade;
+    }
+
+    public void setOilGrade(String oilGrade) {
+        this.oilGrade = oilGrade;
+    }
+
+    public String getOilFilter() {
+        return oilFilter;
+    }
+
+    public void setOilFilter(String oilFilter) {
+        this.oilFilter = oilFilter;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    @Override
+    public String toString() {
+        return "OilChange{" +
+                "id=" + id +
+                ", mileage=" + mileage +
+                ", date=" + date +
+                ", oilGrade='" + oilGrade + '\'' +
+                ", oilFilter='" + oilFilter + '\'' +
+                ", vehicle=" + vehicle +
+                '}';
+    }
 }
