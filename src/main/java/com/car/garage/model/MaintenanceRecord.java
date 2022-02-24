@@ -1,5 +1,6 @@
 package com.car.garage.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class MaintenanceRecord {
     private Double cost;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private Date date;
 
     @JsonIgnore
