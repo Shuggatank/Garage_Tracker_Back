@@ -18,13 +18,13 @@ public class OilChangeController {
         this.oilChangeService = oilChangeService;
     }
 
-    @GetMapping("/{vehicleId}/oilchange")
+    @GetMapping("/{vehicleId}/oil")
     public List<OilChange> getAllOilChanges(@PathVariable (value = "vehicleId") Long vehicleId) {
         System.out.println("calling AllOilChanges");
         return oilChangeService.getAllOilChanges(vehicleId);
     }
 
-    @PostMapping("/{vehicleId}/oilchange")
+    @PostMapping("/{vehicleId}/oil")
     public OilChange createOilChange(@PathVariable (value = "vehicleId") Long vehicleId, @RequestBody OilChange oilChangeObject) {
         System.out.println("Creating Oil Change");
         return oilChangeService.createOilChange(vehicleId, oilChangeObject);
