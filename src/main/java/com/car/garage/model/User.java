@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @Column
@@ -22,7 +22,7 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @OneToMany(mappedBy = "User")
+    @OneToMany(mappedBy = "user")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Vehicle> vehicleList;
 
@@ -33,6 +33,14 @@ public class User {
         this.id = id;
         this.userName = userName;
         this.password = password;
+    }
+
+    public List<Vehicle> getVehicleList() {
+        return vehicleList;
+    }
+
+    public void setVehicleList(List<Vehicle> vehicleList) {
+        this.vehicleList = vehicleList;
     }
 
     public Long getId() {
@@ -65,6 +73,7 @@ public class User {
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
+                ", vehicleList=" + vehicleList +
                 '}';
     }
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="vehicle")
+@Table(name="vehicles")
 public class Vehicle {
 
     @Id
@@ -26,19 +26,19 @@ public class Vehicle {
     private String model;
 
     @Column
-    private Integer year;
+    private Long year;
 
-    @OneToMany(mappedBy = "Vehicle")
+    @OneToMany(mappedBy = "vehicle", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<OilChange> oilChangeList;
 
-    @OneToMany(mappedBy = "Vehicle")
+    @OneToMany(mappedBy = "vehicle", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<GasFill> gasFillList;
 
-    @OneToMany(mappedBy = "Vehicle")
+    @OneToMany(mappedBy = "vehicle", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<MaintenanceRecord> maintenanceRecordListList;
+    private List<MaintenanceRecord> maintenanceRecordList;
 
     @JsonIgnore
     @ManyToOne
@@ -56,7 +56,7 @@ public class Vehicle {
         this.user = user;
     }
 
-    public Vehicle(Long id, String vin, String make, String model, Integer year) {
+    public Vehicle(Long id, String vin, String make, String model, Long year) {
         this.id = id;
         this.vin = vin;
         this.make = make;
@@ -97,11 +97,11 @@ public class Vehicle {
         this.model = model;
     }
 
-    public Integer getYear() {
+    public Long getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(Long year) {
         this.year = year;
     }
 
@@ -121,12 +121,12 @@ public class Vehicle {
         this.gasFillList = gasFillList;
     }
 
-    public List<MaintenanceRecord> getMaintenanceRecordListList() {
-        return maintenanceRecordListList;
+    public List<MaintenanceRecord> getMaintenanceRecordList() {
+        return maintenanceRecordList;
     }
 
-    public void setMaintenanceRecordListList(List<MaintenanceRecord> maintenanceRecordListList) {
-        this.maintenanceRecordListList = maintenanceRecordListList;
+    public void setMaintenanceRecordListList(List<MaintenanceRecord> maintenanceRecordList) {
+        this.maintenanceRecordList = maintenanceRecordList;
     }
 
     @Override
@@ -139,7 +139,7 @@ public class Vehicle {
                 ", year=" + year +
                 ", oilChangeList=" + oilChangeList +
                 ", gasFillList=" + gasFillList +
-                ", maintenanceRecordListList=" + maintenanceRecordListList +
+                ", maintenanceRecordList=" + maintenanceRecordList +
                 '}';
     }
 }
