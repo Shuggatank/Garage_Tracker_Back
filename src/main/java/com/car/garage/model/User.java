@@ -15,10 +15,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false, length = 20)
     private String userName;
 
-    @Column
+    @Column(nullable = false, length = 64)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
