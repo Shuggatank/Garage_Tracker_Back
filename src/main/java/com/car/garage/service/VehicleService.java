@@ -24,10 +24,10 @@ public class VehicleService {
     }
 
     public Vehicle createVehicle(Vehicle vehicleObject) {
-        Optional<Vehicle> vehicle = vehicleRepository.findById(vehicleObject.getId());
-        if(vehicle.isPresent()) {
-            throw new InformationExistsException("Vehicle already exists");
-        }
+//        Optional<Vehicle> vehicle = vehicleRepository.findById(vehicleObject.getId());
+//        if(vehicle.isPresent()) {
+//            throw new InformationExistsException("Vehicle already exists");
+//        }
         return vehicleRepository.save(vehicleObject);
     }
 
