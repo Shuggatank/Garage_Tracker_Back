@@ -28,16 +28,13 @@ public class OilChangeService {
     }
 
     public List<OilChange> getAllOilChanges(Long vehicleId) {
-        return oilChangeRepository.findAll();
+        Vehicle vehicle = vehicleRepository.findById(vehicleId).get();
+        return vehicle.getOilChangeList();
     }
 
     public OilChange createOilChange(Long vehicleId, OilChange oilChangeObject) {
-        Optional<Vehicle> vehicle = vehicleRepository.findById(vehicleId);
-        if (vehicle.isPresent()) {
-            return oilChangeRepository.save(oilChangeObject);
-        }
-        else {
-            throw new InformationNotFoundException("No vehicle found");
-        }
+        Vehicle vehicle = vehicleRepository.findById(vehicleId).get();
+        oilChangeObject.setVehicle(vehicle);
+        return oilChangeRepository.save(oilChangeObject);
     }
 }

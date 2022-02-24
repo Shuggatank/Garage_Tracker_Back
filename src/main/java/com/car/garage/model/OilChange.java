@@ -28,7 +28,7 @@ public class OilChange {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "vehicle_id")
+    @JoinColumn(name = "vehicle_id", nullable = false)
     private Vehicle vehicle;
 
     public OilChange() {
@@ -98,7 +98,7 @@ public class OilChange {
                 ", date=" + date +
                 ", oilGrade='" + oilGrade + '\'' +
                 ", oilFilter='" + oilFilter + '\'' +
-                ", vehicle=" + vehicle +
+                ", vehicleId=" + vehicle +
                 '}';
     }
 }
