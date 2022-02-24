@@ -1,5 +1,6 @@
 package com.car.garage.service;
 
+import com.car.garage.exceptions.InformationNotFoundException;
 import com.car.garage.model.MaintenanceRecord;
 import com.car.garage.model.Vehicle;
 import com.car.garage.repository.MaintenanceRecordRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MaintenanceRecordService {
@@ -26,13 +28,21 @@ public class MaintenanceRecordService {
     }
 
     public List<MaintenanceRecord> getAllMaintenanceRecords(Long vehicleId) {
-        Vehicle vehicle = vehicleRepository.findById(vehicleId).get();
-        return vehicle.getMaintenanceRecordList();
+        Optional<Vehicle> vehicle = vehicleRepository.findById(vehicleId);
+        if (vehicle.isPresent()) {
+            return vehicle.get().getMaintenanceRecordList();
+        } else {
+            throw new InformationNotFoundException("Vehicle does not exist");
+        }
     }
 
     public MaintenanceRecord createMaintenanceRecord(Long vehicleId, MaintenanceRecord recordObject) {
-        Vehicle vehicle = vehicleRepository.findById(vehicleId).get();
-        recordObject.setVehicle(vehicle);
-        return maintenanceRecordRepository.save(recordObject);
+        Optional<Vehicle> vehicle = vehicleRepository.findById(vehicleId);
+        if (vehicle.isPresent()) {
+            recordObject.setVehicle(vehicle.get());
+            return maintenanceRecordRepository.save(recordObject);
+        } else {
+            throw new InformationNotFoundException("Vehicle does not exist");
+        }
     }
 }
