@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api" )
@@ -29,6 +30,12 @@ public class VehicleController {
     public Vehicle createVehicle(@RequestBody Vehicle vehicleObject) {
         System.out.println("Creating a new vehicle");
         return vehicleService.createVehicle(vehicleObject);
+    }
+
+    @GetMapping("/vehicles/{vehicleId}")
+    public Optional<Vehicle> getVehicle(@PathVariable(value = "vehicleId") Long vehicleId) {
+        System.out.println("Calling getAllVehicles");
+        return vehicleService.getVehicle(vehicleId);
     }
 
 }
