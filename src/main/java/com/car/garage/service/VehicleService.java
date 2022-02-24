@@ -1,6 +1,7 @@
 package com.car.garage.service;
 
 import com.car.garage.exceptions.InformationExistsException;
+import com.car.garage.exceptions.InformationNotFoundException;
 import com.car.garage.model.Vehicle;
 import com.car.garage.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,16 @@ public class VehicleService {
     }
 
     public Vehicle createVehicle(Vehicle vehicleObject) {
-//        Optional<Vehicle> vehicle = vehicleRepository.findById(vehicleObject.getId());
-//        if(vehicle.isPresent()) {
-//            throw new InformationExistsException("Vehicle already exists");
-//        }
         return vehicleRepository.save(vehicleObject);
+    }
+
+    public Optional<Vehicle> getVehicle(Long vehicleId) {
+        Optional<Vehicle> vehicle = vehicleRepository.findById(vehicleId);
+        if (vehicle.isPresent()) {
+            return vehicle;
+        } else {
+            throw new InformationNotFoundException("Vehicle does not exist");
+        }
     }
 
 
