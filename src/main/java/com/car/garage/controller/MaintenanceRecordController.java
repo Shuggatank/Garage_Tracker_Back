@@ -18,13 +18,13 @@ public class MaintenanceRecordController {
         this.maintenanceRecordService = maintenanceRecordService;
     }
 
-    @GetMapping("/{vehicleId}/maintenancerecord")
+    @GetMapping("/{vehicleId}/maintenance")
     public List<MaintenanceRecord> getAllMaintenanceRecords(@PathVariable(value = "vehicleId") Long vehicleId) {
         System.out.println("calling AllMaintenanceRecords");
         return maintenanceRecordService.getAllMaintenanceRecords(vehicleId);
     }
 
-    @PostMapping("/{vehicleId}/maintenancerecord")
+    @PostMapping("/{vehicleId}/maintenance")
     public MaintenanceRecord createMaintenanceRecord(@PathVariable (value = "vehicleId") Long vehicleId, @RequestBody MaintenanceRecord recordObject) {
         System.out.println("Creating Maintenance Record");
         return maintenanceRecordService.createMaintenanceRecord(vehicleId, recordObject);
