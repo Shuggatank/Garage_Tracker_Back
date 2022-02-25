@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api" )
 public class VehicleController {
 
@@ -19,7 +20,6 @@ public class VehicleController {
     public void setVehicleService(VehicleService vehicleService) {
         this.vehicleService = vehicleService;
     }
-
     @GetMapping("/vehicles")
     public List<Vehicle> getAllVehicles() {
         System.out.println("Calling getAllVehicles");
