@@ -14,7 +14,8 @@
     <name>garage</name>
     <description>garage</description>
     <properties>
-        <java.version>11</java.version>
+<!--        <java.version>11</java.version>-->
+        <java.runtime.version>11</java.runtime.version>
     </properties>
     <dependencies>
 <!--        <dependency>-->
