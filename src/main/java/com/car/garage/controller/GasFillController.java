@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://garagetracker.herokuapp.com")
+@CrossOrigin(origins = {"https://garagetracker.herokuapp.com", "http://localhost:4200"})
 @RequestMapping("/api/vehicles" )
 public class GasFillController {
 

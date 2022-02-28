@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = {"https://garagetracker.herokuapp.com", "localhost:4200"})
+@CrossOrigin(origins = {"https://garagetracker.herokuapp.com", "http://localhost:4200"})
 @RequestMapping("/api" )
 public class VehicleController {
 
