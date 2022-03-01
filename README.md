@@ -25,3 +25,52 @@ The user would be able to store their vehicle data such as make, model, year, as
 Each vehicle can contain records of work done on the vehicle such as oil changes, gas fill ups, 
 and any other maintenance records. 
 
+### The Approach
+
+
+
+
+### Unsolved Problems or Major Hurdles
+
+
+### Todo
+
+
+## User Stories
+
+
+## Tools Used
+
+|                                                                              |               |
+|:----------------------------------------------------------------------------:|:-------------:|
+|   <img alt="Spring-Boot logo" height="50" src="img/spring-boot-logo.png"/>   |  Spring Boot  |
+| <img alt="IntelliJ-idea logo" height="50" src="img/intellij-idea-logo.png"/> | IntelliJ IDEA |
+|          <img alt="Java logo" height="50" src="img/java-logo.png"/>          |     Java      |
+|        <img alt="Maven logo" height="35" src="img/apache-maven.png"/>        | Apache Maven  |
+|      <img alt="PostgreSQL" height="65" src="img/postgresql-logo.png"/>       |  PostgreSQL   |
+|         <img alt="Postman" height="50" src="img/postman-logo.png"/>          |    Postman    |
+|        <img alt="testcontainers" height="50" src="img/heroku2.png"/>         |    Heroku     |
+|       <img alt="Lucid charts" height="33" src="img/lucidcharts.png"/>        |  Lucidcharts  |
+
+
+## Installation
+
+
+## POM Dependencies
+
+## Entity Relationship Diagram
+
+### Initial ERD
+
+### Project ERD
+
+## Model View Controller System Design
+
+## Endpoints
+
+## Database Layout
+
+## Sample of Output
+
+
+## Project Structure
