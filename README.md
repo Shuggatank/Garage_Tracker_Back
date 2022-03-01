@@ -28,18 +28,34 @@ and any other maintenance records.
 ### The Approach
 I first started with the ERD to flush out how the API would be structured. 
 This made the subsequent work much easier because the planning was done ahead of touching any code.
+The first thing I did was set up the folder structure ahead of time because I knew what I wanted and how I wanted to structure the project.
+I started creating the models first since they are the basis of the other components. For each model I first created the repository
+then created the service, then the controller. I found this make more sense because 
+the controller relies on the service which relies on the repository which relies on the model. 
 
 
 
 
 ### Unsolved Problems or Major Hurdles
-
+One issue I ran into was a Cross-Origin Resource Sharing (CORS) error. 
+While working fine with getting data with Postman, when I connected my front-end application to the back-end api I ran into the CORS issue. 
+After a bit of research I found a solution, which was to include `@CrossOrigin(origins = {"https://garagetracker.herokuapp.com", "http://localhost:4200"})` 
+which seems to have solved the issue. At first, I had only the localhost but when deployed I ran into the same issue, so I added the address of the deployed site as well.
 
 ### Todo
-
+- [ ] Add user role to save data per user.
+- [ ] Add login and signup
+- [ ] Add security
+- [ ] Add more integration and unit testing
 
 ## User Stories
-
+- [x] As a user I would like to add vehicles
+- [x] As a user I would like to log my oil changes
+- [x] As a user I would like to log my gas fills
+- [x] As a user I would like to log any maintenance done
+- [x] As a user I would each record to be associated with a vehicle
+- [x] As a user I would like a way to see all the records of a particular type
+- [ ] As a user I would like to create an account
 
 ## Tools Used
 
@@ -56,6 +72,12 @@ This made the subsequent work much easier because the planning was done ahead of
 
 
 ## Installation
+- Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named garage.
+- Update application-dev.properties with your username and password. 
+- Update datasource to match your local database
+- To test endpoints use [Postman](https://www.postman.com/). 
+
+
 
 
 ## POM Dependencies
@@ -100,9 +122,11 @@ This made the subsequent work much easier because the planning was done ahead of
 ```
 ## Entity Relationship Diagram
 
-### Initial ERD
 
+### Initial ERD
+![Initial ERD](img/ERD.png)
 ### Project ERD
+![Project ERD](img/Final_ERD.png)
 
 ## Model View Controller System Design
 
